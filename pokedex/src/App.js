@@ -5,7 +5,7 @@ import PokeList from './PokeList';
 import PokeProfile from './PokeProfile';
 
 class App extends Component {
-  constructor(){
+  constructor(props){
     super(props)
     this.state = {
       pokeList: null,
@@ -26,9 +26,35 @@ componentDidMount(){
   })
 }
 
+getUrl (url) {
+  fetch(`${url}`)
+  .then(res => res.json())
+   .then(data => {
+     this.setState({
+       urlList: data,
+       urlListLoaded: true
+     })
+   })
+}
+
 
   render() {
-    return
+    return (
+    <div>
+        {this.state.pokeListLoaded ? (
+          <PokeList pokeList={this.state.pokeList} getUrl={url => this.getUrl(url)} />
+        ) : (
+          <p>Loading!</p>
+        )}
+
+        {this.state.urlListLoaded ? (
+          <PokeProfile urlList = {this.state.urlList} />
+        ) : (
+          <p>Choose a Pokemon On your Left!</p>
+        )}
+
+    </div>
+  )
   }
 }
 
