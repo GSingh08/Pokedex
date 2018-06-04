@@ -10,8 +10,8 @@ class App extends Component {
     this.state = {
       pokeList: null,
       urlList:null,
-      pokeListLoaded:false,
-      urlListLoaded:false
+      pokeDataLoaded:false,
+      urlDataLoaded:false
     }
   }
 //This calls to pokemon api and gets the 151 pokemon.
@@ -19,7 +19,7 @@ componentDidMount(){
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
   .then(res => res.json())
   .then(data => {
-    this.state({
+    this.setState({
       pokeList: data.results,
       pokeDataLoaded:true
     })
@@ -32,7 +32,7 @@ getUrl (url) {
    .then(data => {
      this.setState({
        urlList: data,
-       urlListLoaded: true
+       urlDataLoaded: true
      })
    })
 }
@@ -41,13 +41,13 @@ getUrl (url) {
   render() {
     return (
     <div>
-        {this.state.pokeListLoaded ? (
+        {this.state.pokeDataLoaded ? (
           <PokeList pokeList={this.state.pokeList} getUrl={url => this.getUrl(url)} />
         ) : (
           <p>Loading!</p>
         )}
 
-        {this.state.urlListLoaded ? (
+        {this.state.urlDataLoaded ? (
           <PokeProfile urlList = {this.state.urlList} />
         ) : (
           <p>Choose a Pokemon On your Left!</p>
