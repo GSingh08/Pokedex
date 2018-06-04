@@ -1,0 +1,17 @@
+.pokemon-wrapper{
+  overflow-y: scroll;
+  width:300px;
+  height:400px;
+  border: 1px solid black;
+  text-align: center;
+
+}
+
+.pokemon-container{
+  position: relative;
+  right:15em;
+}
+
+.poke-header{
+
+}

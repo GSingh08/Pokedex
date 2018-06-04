@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/GSingh08/Pokedex/issues"
   },
-  "homepage": "https://github.com/GSingh08/Pokedex#readme"
+  "homepage": "https://github.com/GSingh08/Pokedex#readme",
+  "dependencies": {
+    "pokemon-font": "^1.8.1"
+  }
 }

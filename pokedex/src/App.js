@@ -40,7 +40,7 @@ getUrl (url) {
 
   render() {
     return (
-    <div>
+    <div className='app-container'>
         {this.state.pokeDataLoaded ? (
           <PokeList pokeList={this.state.pokeList} getUrl={url => this.getUrl(url)} />
         ) : (
